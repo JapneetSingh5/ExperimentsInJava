@@ -1,4 +1,4 @@
-##### Running 2 Vanilla Threads - extends Thread
+##### Running 2 Vanilla Threads/Runnables - extends Thread, or implements Runnable
 ```
 Running Thread 1
 Running Thread 2

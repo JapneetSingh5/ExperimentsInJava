@@ -1,4 +1,4 @@
-##### Running 2 Vanilla Threads - extends Thread
+##### Running 2 Vanilla Threads/Runnables - extends Thread, or implements Runnable
 ```
 Running Thread 1
 Running Thread 2
@@ -62,4 +62,19 @@ Tick Thread 1 -> 9
 Tick Thread 1 -> 10
 
 Process finished with exit code 0
+```
+Throw Runtime Exception in main thread
+```
+Exception in thread "main" java.lang.RuntimeException
+at RunTwoThreadsMainException.main(RunTwoThreadsMainException.java:7)
+Running Thread 1
+Running Thread 2
+Tick Thread 1 -> 1
+Tick Thread 2 -> 1
+Tick Thread 1 -> 2
+Tick Thread 2 -> 2
+Tick Thread 2 -> 3
+Tick Thread 1 -> 3
+
+Process finished with exit code 1
 ```
