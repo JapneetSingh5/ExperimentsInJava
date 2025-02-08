@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class RaceCondition {
     // 2 types of race conditions
 
@@ -10,16 +12,39 @@ public class RaceCondition {
     // - multiple threads check a value, at the same time
     // - find condition satisfied, first one acts
     // - rest will have condition satisfied but will get a problematic/unexpected value instead
-
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    public static class MyObject{
+        int count = 0;
+        void increment(){
+//            synchronized (this) { // uncomment to fix
+                count++;
+//            }
         }
     }
+
+    public static void main(String[] args) throws InterruptedException {
+        final MyObject counter = new MyObject();
+        Runnable r1 = () -> {
+            for(int i=0; i<10000; i++) {
+                counter.increment();
+            }
+        };
+        Runnable r2 = () -> {
+            for(int i=0; i<10000; i++) {
+                counter.increment();
+            }
+        };
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        t1.start();
+//        t1.join(); // uncomment to get desired value
+        t2.start();
+        t1.join();
+        t2.join();
+        System.out.println(counter.count);
+    }
+
+    // outputs
+    // 13796
+    // 14202
+    // 14137
 }
