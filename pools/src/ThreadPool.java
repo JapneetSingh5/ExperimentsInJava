@@ -16,6 +16,8 @@ Java has a built-in thread pool called ExecutorService, but let's try build one 
 As soon as a thread is idle, the next task is assigned to it (if any, queue of tasks is maintained)
  */
 public class ThreadPool {
+    // bLocking queues aree interesting,
+    // Producer Consumer pattern see https://jenkov.com/tutorials/java-concurrency/producer-consumer.html
     private BlockingQueue taskQ = null;
     private List<PoolThreadRunnable> runnables = new ArrayList<>();
     private boolean isStopped = false;
