@@ -4,6 +4,15 @@ import java.util.List;
 public abstract class Team implements Subject{
     private final List<Observer> observers = new ArrayList<>();
     private int score;
+    private final String name;
+
+    protected Team(String name) {
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
 
     public void goal() {
         this.score += 1;

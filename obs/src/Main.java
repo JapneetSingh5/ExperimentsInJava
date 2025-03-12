@@ -2,8 +2,8 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Team home = new Home();
-        Team away = new Away();
+        Team home = new Home("India");
+        Team away = new Away("Brazil");
         Scorecard sc = new Scorecard(home, away);
         home.registerObserver(sc);
         away.registerObserver(sc);
