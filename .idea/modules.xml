@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ExprimentsInJava.iml" filepath="$PROJECT_DIR$/.idea/ExprimentsInJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/effecive-java/effecive-java.iml" filepath="$PROJECT_DIR$/effecive-java/effecive-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/obs/obs.iml" filepath="$PROJECT_DIR$/obs/obs.iml" />
       <module fileurl="file://$PROJECT_DIR$/pools/pools.iml" filepath="$PROJECT_DIR$/pools/pools.iml" />
       <module fileurl="file://$PROJECT_DIR$/races/races.iml" filepath="$PROJECT_DIR$/races/races.iml" />
       <module fileurl="file://$PROJECT_DIR$/threads/threads.iml" filepath="$PROJECT_DIR$/threads/threads.iml" />
